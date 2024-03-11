@@ -2,18 +2,13 @@ import "./App.css";
 import "./reset.css";
 import styled from "styled-components";
 import ProfileImg from "/images/profileImage1.png";
+import Header from "./components/Header";
 function App() {
   return (
     <>
       <Container>
-        <TitleWrapper>
-          <TitleWrapperFirst>
-            <H1>Notifications</H1>
-            <Button>3</Button>
-          </TitleWrapperFirst>
-          <TitleParagraph>Mark all as read</TitleParagraph>
-        </TitleWrapper>
         <NotificationWrapper>
+          <Header />
           <Notification>
             <img src={ProfileImg} alt="avatar" />
             <ParagraphWrapper>
@@ -25,57 +20,16 @@ function App() {
               <SpanTime>1m ago</SpanTime>
             </ParagraphWrapper>
           </Notification>
-          <Notification>
-            <img src={ProfileImg} alt="avatar" />
-            <Paragraph>
-              <SpanName> Mark Webber</SpanName> reacted to your recent post{" "}
-              <SpanInfo>My first tournament today!</SpanInfo>
-              <Oval></Oval>
-            </Paragraph>
-          </Notification>
         </NotificationWrapper>
       </Container>
     </>
   );
 }
+
 const Container = styled.div`
   width: 375px;
   padding: 24px 16px 29px;
   background-color: #f3f1f1;
-`;
-const TitleWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-const TitleWrapperFirst = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 9px;
-`;
-const H1 = styled.h1`
-  font-size: 20px;
-  color: #1c202b;
-  font-weight: 700;
-`;
-const Button = styled.button`
-  width: 32px;
-  height: 25px;
-  border-radius: 6px;
-  background-color: #0a327b;
-  font-size: 16px;
-  font-weight: 700;
-  color: #fff;
-`;
-const TitleParagraph = styled.p`
-  font-size: 14px;
-  font-weight: 400;
-  color: #5e6778;
-  cursor: pointer;
-
-  &:hover {
-    color: #0a327b;
-  }
 `;
 const NotificationWrapper = styled.div`
   display: flex;
@@ -127,7 +81,7 @@ const Oval = styled.div`
   margin-left: 6px;
   display: inline-block;
 `;
-const SpanTime = styled.div`
+const SpanTime = styled.span`
   font-size: 14px;
   font-weight: 400;
   color: #939cad;
