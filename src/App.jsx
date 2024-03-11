@@ -1,7 +1,7 @@
 import "./App.css";
 import "./reset.css";
 import styled from "styled-components";
-import ProfileImg from "/images/profileImage1.png";
+import date from "./data.json";
 import Header from "./components/Header";
 function App() {
   return (
@@ -9,17 +9,19 @@ function App() {
       <Container>
         <NotificationWrapper>
           <Header />
-          <Notification>
-            <img src={ProfileImg} alt="avatar" />
-            <ParagraphWrapper>
-              <Paragraph>
-                <SpanName> Mark Webber</SpanName> reacted to your recent post{" "}
-                <SpanInfo>My first tournament today!</SpanInfo>
-                <Oval></Oval>
-              </Paragraph>
-              <SpanTime>1m ago</SpanTime>
-            </ParagraphWrapper>
-          </Notification>
+          {date.map((item, index) => (
+            <Notification key={index}>
+              <img src={item.url} alt="avatar" />
+              <ParagraphWrapper>
+                <Paragraph>
+                  <SpanName>{item.name}</SpanName> {item.title}{" "}
+                  <SpanInfo>{item.event}</SpanInfo>
+                  <Oval></Oval>
+                </Paragraph>
+                <SpanTime>{item.date}</SpanTime>
+              </ParagraphWrapper>
+            </Notification>
+          ))}
         </NotificationWrapper>
       </Container>
     </>
@@ -29,7 +31,7 @@ function App() {
 const Container = styled.div`
   width: 375px;
   padding: 24px 16px 29px;
-  background-color: #f3f1f1;
+  background-color: #fff;
 `;
 const NotificationWrapper = styled.div`
   display: flex;
@@ -39,7 +41,6 @@ const NotificationWrapper = styled.div`
 `;
 const Notification = styled.div`
   width: 343px;
-  height: 89px;
   display: flex;
   gap: 13px;
   align-items: center;
