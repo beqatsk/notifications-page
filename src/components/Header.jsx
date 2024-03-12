@@ -5,7 +5,7 @@ export default function Header() {
     <TitleWrapper>
       <TitleWrapperFirst>
         <H1>Notifications</H1>
-        <Button>3</Button>
+        <Button>7</Button>
       </TitleWrapperFirst>
       <TitleParagraph>Mark all as read</TitleParagraph>
     </TitleWrapper>
