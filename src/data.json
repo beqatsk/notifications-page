@@ -5,15 +5,19 @@
     "name": "Mark Webber",
     "title": "reacted to your recent post",
     "event": "My first tournament today!",
-    "date": "1m ago"
+    "date": "1m ago",
+    "message": "",
+    "read": false
   },
   {
     "id": 2,
     "url": "/images/profileImage2.png",
     "name": "Angela Gray",
     "title": "followed you",
-    "event": " ",
-    "date": "5m ago"
+    "event": "",
+    "date": "5m ago",
+    "message": "",
+    "read": false
   },
   {
     "id": 3,
@@ -21,23 +25,29 @@
     "name": "Jacob Thompson",
     "title": "has joined your group",
     "event": "Chess Club",
-    "date": "1 day ago"
+    "date": "1 day ago",
+    "message": "",
+    "read": false
   },
   {
     "id": 4,
     "url": "/images/profileImage4.png",
     "name": "Rizky Hasanuddin",
     "title": "send you a private message",
-    "event": "My first tournament today!",
-    "date": "5 day ago"
+    "event": "",
+    "date": "5 day ago",
+    "message": "Hello, thanks for setting up the Chess Club. I’ve been a member for a few weeks now and I’m already having lots of fun and improving my game.",
+    "read": false
   },
   {
     "id": 5,
     "url": "/images/profileImage5.png",
     "name": "Klimberly Smith",
     "title": "comment on your picture",
-    "event": "My first tournament today!",
-    "date": "1 week ago"
+    "date": "1 week ago",
+    "userImage": "/images/userImage.png",
+    "message": "",
+    "read": false
   },
   {
     "id": 6,
@@ -45,7 +55,9 @@
     "name": "nathan Peterson",
     "title": "reactd to your recent post",
     "event": "5 end-game strategies to increase your win rate",
-    "date": "2 week ago"
+    "date": "2 week ago",
+    "message": "",
+    "read": false
   },
   {
     "id": 7,
@@ -53,6 +65,8 @@
     "name": "Anna Kim",
     "title": "sleft the group",
     "event": "Chess club",
-    "date": "2 weeks ago"
+    "date": "2 weeks ago",
+    "message": "",
+    "read": false
   }
 ]
