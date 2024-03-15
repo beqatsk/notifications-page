@@ -4,12 +4,46 @@ import { useState } from "react";
 
 export default function Main() {
   const [notifications, setNotifications] = useState(date);
-
+  const notificationCounter = notifications.filter(
+    (notification) => !notification.read
+  ).length;
   return (
     <NotificationWrapper>
+      <TitleWrapper>
+        <TitleWrapperFirst>
+          <H1>Notifications</H1>
+          <Button>{notificationCounter}</Button>
+        </TitleWrapperFirst>
+        <TitleParagraph
+          onClick={() => {
+            const newNotifications = notifications.map((notification) => {
+              return { ...notification, read: true };
+            });
+            setNotifications(newNotifications);
+          }}
+        >
+          Mark all as read
+        </TitleParagraph>
+      </TitleWrapper>
       {notifications.map((item) => {
         return (
-          <Notification key={item.id}>
+          <Notification
+            key={item.id}
+            style={
+              !item.read
+                ? { backgroundColor: "#f7fafd" }
+                : { backgroundColor: "white" }
+            }
+            onClick={() => {
+              const newNotifications = notifications.map((currentMessage) => {
+                if (item.id === currentMessage.id) {
+                  return { ...currentMessage, read: true };
+                }
+                return currentMessage;
+              });
+              setNotifications(newNotifications);
+            }}
+          >
             <img src={item.url} alt="avatar" />
             <ParagraphWrapper>
               <Wrapper>
@@ -17,9 +51,9 @@ export default function Main() {
                   <Paragraph>
                     <SpanName>{item.name}</SpanName> {item.title}{" "}
                     <SpanInfo>{item.event}</SpanInfo>
-                    <Oval></Oval>
+                    {!item.read ? <Oval></Oval> : null}
+                    <SpanTime>{item.date}</SpanTime>
                   </Paragraph>
-                  <SpanTime>{item.date}</SpanTime>
                 </div>
 
                 {item.userImage ? (
@@ -89,6 +123,7 @@ const Oval = styled.div`
   display: inline-block;
 `;
 const SpanTime = styled.span`
+  padding-left: 5px;
   font-size: 14px;
   font-weight: 400;
   color: #939cad;
@@ -111,4 +146,39 @@ const MessageBox = styled.div`
 `;
 const Wrapper = styled.div`
   display: flex;
+`;
+
+const TitleWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+const TitleWrapperFirst = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 9px;
+`;
+const H1 = styled.h1`
+  font-size: 20px;
+  color: #1c202b;
+  font-weight: 700;
+`;
+const Button = styled.button`
+  width: 32px;
+  height: 25px;
+  border-radius: 6px;
+  background-color: #0a327b;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+`;
+const TitleParagraph = styled.p`
+  font-size: 14px;
+  font-weight: 400;
+  color: #5e6778;
+  cursor: pointer;
+
+  &:hover {
+    color: #0a327b;
+  }
 `;
